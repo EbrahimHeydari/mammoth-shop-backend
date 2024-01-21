@@ -1,0 +1,105 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "الکتریکی",
+        "اسپرت",
+        "کلاسیک",
+        "لوکس",
+        "مدرن",
+        "شخصی",
+        "رالی"
+      ]
+    },
+    "company": {
+      "type": "enumeration",
+      "enum": [
+        "Benz",
+        "Bugatti",
+        "Ferrari",
+        "Hyundai",
+        "Lamborghini",
+        "Porsche",
+        "Tesla",
+        "Toyota",
+        "سایر موارد"
+      ]
+    },
+    "color": {
+      "type": "string"
+    },
+    "new": {
+      "type": "boolean"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "gearbox_auto": {
+      "type": "boolean"
+    },
+    "year": {
+      "type": "date"
+    },
+    "guarantee": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "rateAverage": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "product"
+    },
+    "savedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "saved"
+    },
+    "reservedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "cart"
+    }
+  }
+}
