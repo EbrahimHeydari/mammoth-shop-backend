@@ -9,8 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "draftAndPublish": false,
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -63,6 +62,9 @@
       "inversedBy": "users",
       "configurable": false
     },
+    "fullName": {
+      "type": "string"
+    },
     "picture": {
       "type": "media",
       "multiple": false,
@@ -82,7 +84,7 @@
     },
     "saved": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::product.product",
       "mappedBy": "savedBy"
     },
@@ -97,6 +99,12 @@
       "relation": "oneToMany",
       "target": "api::post.post",
       "mappedBy": "author"
+    },
+    "likeList": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "likes"
     }
   }
 }
