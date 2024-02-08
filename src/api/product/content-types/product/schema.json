@@ -69,7 +69,7 @@
     "price": {
       "type": "integer"
     },
-    "rateAverage": {
+    "rate": {
       "type": "decimal"
     },
     "image": {
@@ -91,7 +91,7 @@
     },
     "savedBy": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
       "inversedBy": "saved"
     },
